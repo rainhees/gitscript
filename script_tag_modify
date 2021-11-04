@@ -1,0 +1,10 @@
+#!/bin/bash
+filename='../../Desktop/tag'
+
+while read f1   f2; do
+git checkout tags/"$f1"
+git tag "$f2"
+git push origin tags/"$f2"
+git tag -d "$f1"
+git push origin :tags/"$f1"
+done < $filename
